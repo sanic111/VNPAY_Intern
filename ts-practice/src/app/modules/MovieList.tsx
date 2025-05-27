@@ -6,6 +6,7 @@ import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 
 type Props = {
   genreId: number;
+  genreName?: string; // Optional: để hiển thị tên thể loại
 };
 
 type Movie = {
@@ -15,7 +16,7 @@ type Movie = {
   poster_path: string;
 };
 
-function MovieList({ genreId }: Props) {
+function MovieList({ genreId, genreName }: Props) {
   const [movieList, setMovieList] = useState<Movie[]>([]);
   const elementRef = useRef<HTMLDivElement>(null);
 
@@ -44,31 +45,42 @@ function MovieList({ genreId }: Props) {
   };
 
   return (
-    <div className="relative">
+    <div className="relative mb-10">
+      {/* Tiêu đề thể loại */}
+      {genreName && (
+        <h2 className="mb-4 px-2 text-2xl font-semibold text-white md:text-3xl">
+          {genreName}
+        </h2>
+      )}
+
       {/* Nút trái */}
       <IoChevronBackOutline
         onClick={slideLeft}
-        className="absolute left-0 top-[40%] z-10 hidden cursor-pointer p-2 text-[50px] text-white md:block"
+        className="absolute left-0 top-[50%] z-10 hidden -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-[40px] text-white hover:bg-black md:block"
       />
 
       {/* Danh sách phim */}
       <div
         ref={elementRef}
-        className="flex gap-8 overflow-x-auto scroll-smooth px-3 pb-4 pt-4 scrollbar-hide"
+        className="flex gap-6 overflow-x-auto scroll-smooth px-2 pb-4 pt-2 scrollbar-hide"
       >
-        {movieList.map((item, index) =>
-          index % 3 === 0 ? (
-            <HrMovieCard key={item.id} movie={item} />
-          ) : (
-            <MovieCard key={item.id} movie={item} />
-          ),
+        {movieList.length === 0 ? (
+          <p className="text-white">Không có phim nào...</p>
+        ) : (
+          movieList.map((item, index) =>
+            index % 3 === 0 ? (
+              <HrMovieCard key={item.id} movie={item} />
+            ) : (
+              <MovieCard key={item.id} movie={item} />
+            ),
+          )
         )}
       </div>
 
       {/* Nút phải */}
       <IoChevronForwardOutline
         onClick={slideRight}
-        className="absolute right-0 top-[40%] z-10 hidden cursor-pointer p-2 text-[50px] text-white md:block"
+        className="absolute right-0 top-[50%] z-10 hidden -translate-y-1/2 cursor-pointer rounded-full bg-black/50 p-2 text-[40px] text-white hover:bg-black md:block"
       />
     </div>
   );

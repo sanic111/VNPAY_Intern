@@ -48,7 +48,7 @@ const Header = () => {
           <div className="md:hidden" onClick={() => setToggle(!toggle)}>
             <HeaderItems name={""} Icon={HiDotsVertical} />
             {toggle ? (
-              <div className="absolute mt-3 border-[1px] border-gray-700 bg-[#121212] p-3 px-5 py-4">
+              <div className="absolute z-20 mt-3 border-[1px] border-gray-700 bg-[#121212] p-3 px-5 py-4">
                 {menu.map(
                   (item, index) =>
                     index > 2 && (
@@ -65,7 +65,7 @@ const Header = () => {
         </div>
       </div>
       <img
-        src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
+        src="https://i.etsystatic.com/9318667/r/il/8cbb89/1084694473/il_1080xN.1084694473_pic2.jpg"
         className="w-[40px] rounded-full"
         alt="avatar"
       />

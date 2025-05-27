@@ -17,7 +17,7 @@ function HrMovieCard({ movie }: Props) {
     : "/fallback-image.jpg"; // fallback nếu không có ảnh
 
   return (
-    <section className="transition-all duration-150 ease-in hover:scale-110">
+    <section className="w-[200px]transition-all flex-shrink-0 duration-150 ease-in hover:scale-110">
       <img
         src={imageUrl}
         alt={movie.title || movie.name || "Movie"}

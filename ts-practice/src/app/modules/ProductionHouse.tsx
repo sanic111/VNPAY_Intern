@@ -4,12 +4,14 @@ import marvel from "../../assets/Images/marvel.png";
 import nationalG from "../../assets/Images/nationalG.png";
 import pixar from "../../assets/Images/pixar.png";
 import starwar from "../../assets/Images/starwar.png";
+// import dreamworld from "../../assets/Images/dreamworld.png";
 
 import starwarV from "../../assets/Videos/star-wars.mp4";
 import disneyV from "../../assets/Videos/disney.mp4";
 import marvelV from "../../assets/Videos/marvel.mp4";
 import nationalGeographicV from "../../assets/Videos/national-geographic.mp4";
 import pixarV from "../../assets/Videos/pixar.mp4";
+// import dreamworldV from "../../assets/Videos/dreamworld.mp4";
 
 function ProductionHouse() {
   const ProductionHouseList = [
@@ -39,16 +41,20 @@ function ProductionHouse() {
       image: starwar,
       video: starwarV,
     },
+    {
+      id: 6,
+      image: disney,
+      video: disneyV,
+    },
   ];
   return (
-    <div className="flex w-full gap-5 overflow-x-auto p-2 px-5 md:px-16">
+    <div className="grid grid-cols-2 gap-8 text-gray-500 sm:grid-cols-3 sm:gap-12 lg:grid-cols-6 dark:text-gray-400">
       {ProductionHouseList.map((item) => (
         <div
           key={item.id}
           className="relative cursor-pointer rounded-lg border-[2px] border-gray-400 shadow-xl shadow-gray-800 transition-all duration-75 ease-in-out hover:scale-100"
         >
           <img src={item.image} alt="" className="z-[1] w-full" />
-
           <video
             src={item.video}
             autoPlay

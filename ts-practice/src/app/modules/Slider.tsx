@@ -3,7 +3,6 @@ import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import GlobalAPI from "../../services/GlobalAPI";
 
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
-const screenWidth = window.innerWidth;
 
 type Movie = {
   id: number;
@@ -14,7 +13,7 @@ type Movie = {
 
 function Slider() {
   const [movieList, setMovieList] = useState<Movie[]>([]);
-  const elementRef = useRef<HTMLDivElement>(null); //  Tạo ref
+  const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     getTrendingMovies();
@@ -32,38 +31,41 @@ function Slider() {
 
   const sliderRight = () => {
     if (elementRef.current) {
-      elementRef.current.scrollLeft += screenWidth - 110;
+      const width = elementRef.current.clientWidth;
+      elementRef.current.scrollLeft += width;
     }
   };
 
   const sliderLeft = () => {
     if (elementRef.current) {
-      elementRef.current.scrollLeft -= screenWidth - 110;
+      const width = elementRef.current.clientWidth;
+      elementRef.current.scrollLeft -= width;
     }
   };
 
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       <HiChevronLeft
-        className="absolute left-0 z-10 mx-8 mt-[150px] hidden cursor-pointer text-[30px] text-white md:block"
+        className="absolute left-0 top-1/2 z-10 hidden -translate-y-1/2 cursor-pointer text-4xl text-white md:block"
         onClick={sliderLeft}
       />
       <HiChevronRight
-        className="absolute right-0 z-10 mx-8 mt-[150px] hidden cursor-pointer text-[30px] text-white md:block"
+        className="absolute right-0 top-1/2 z-10 hidden -translate-y-1/2 cursor-pointer text-4xl text-white md:block"
         onClick={sliderRight}
       />
 
       <div
-        ref={elementRef} // Gắn ref
-        className="flex overflow-x-auto scroll-smooth scrollbar-hide"
+        ref={elementRef}
+        className="flex snap-x snap-mandatory overflow-x-auto scroll-smooth scrollbar-hide"
       >
         {movieList.map((item) => (
-          <img
-            key={item.id}
-            src={IMAGE_BASE_URL + item.backdrop_path}
-            alt={item.title || item.name}
-            className="duration-5 mr-5 h-[310px] min-w-full rounded-lg border-gray-400 object-cover object-left-top transition-all ease-in hover:border-[4px]"
-          />
+          <div key={item.id} className="w-screen flex-shrink-0 snap-start">
+            <img
+              src={IMAGE_BASE_URL + item.backdrop_path}
+              alt={item.title || item.name}
+              className="h-[310px] w-full object-cover"
+            />
+          </div>
         ))}
       </div>
     </div>
