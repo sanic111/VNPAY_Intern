@@ -1,0 +1,47 @@
+# === Logs ===
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# === Dependency directories ===
+node_modules/
+
+# === Build outputs ===
+dist/
+dist-ssr/
+out/         # Dành cho Next.js hoặc một số build khác
+build/
+
+# === Local env & secret config ===
+*.local
+.env
+.env.*      # .env.dev, .env.production, v.v.
+
+# === Editor directories and files ===
+.vscode/
+!.vscode/extensions.json    # Giữ lại cấu hình extension
+.idea/
+.DS_Store                   # macOS system file
+*.suo                       # Visual Studio
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?                       # Swap files: .swa, .swp, .swo...
+
+# === Optional cache ===
+.cache/
+.next/                      # Next.js
+.storybook-out/
+coverage/                   # Jest code coverage
+
+# === TypeScript ===
+*.tsbuildinfo
+
+# === Others ===
+package-lock.json           # Nếu dùng yarn hoặc pnpm thay vì npm
+.pnpm-debug.log
+yarn.lock                   # Nếu không dùng yarn
