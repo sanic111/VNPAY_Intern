@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import GlobalAPI from "../services/GlobalAPI";
+import GlobalAPI from "../../services/GlobalAPI";
 import MovieCard from "./MovieCard";
 import HrMovieCard from "./HrMovieCard";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
@@ -54,7 +54,7 @@ function MovieList({ genreId }: Props) {
       {/* Danh sách phim */}
       <div
         ref={elementRef}
-        className="scrollbar-hide flex gap-8 overflow-x-auto scroll-smooth px-3 pb-4 pt-4"
+        className="flex gap-8 overflow-x-auto scroll-smooth px-3 pb-4 pt-4 scrollbar-hide"
       >
         {movieList.map((item, index) =>
           index % 3 === 0 ? (

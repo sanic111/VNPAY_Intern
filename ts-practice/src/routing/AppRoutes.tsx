@@ -2,7 +2,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Dashboard from "../app/pages/Dashboard";
 import About from "../app/pages/About";
 import NotFound from "../app/pages/NotFound";
-import MainLayout from "../commponent/MainLayout";
+import MainLayout from "../app/modules/MainLayout";
 import { useAuth } from "../app/context/AuthContext";
 
 const AppRoutes = () => {

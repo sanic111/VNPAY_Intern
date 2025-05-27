@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
-import GlobalAPI from "../services/GlobalAPI";
+import GlobalAPI from "../../services/GlobalAPI";
 
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
 const screenWidth = window.innerWidth;
@@ -55,7 +55,7 @@ function Slider() {
 
       <div
         ref={elementRef} // Gắn ref
-        className="scrollbar-hide flex overflow-x-auto scroll-smooth"
+        className="flex overflow-x-auto scroll-smooth scrollbar-hide"
       >
         {movieList.map((item) => (
           <img

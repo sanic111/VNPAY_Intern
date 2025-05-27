@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/icons/logo.png";
+import logo from "../../assets/icons/logo.png";
 import {
   HiHome,
   HiStar,
@@ -8,7 +8,7 @@ import {
   HiMagnifyingGlass,
 } from "react-icons/hi2";
 import { HiPlus, HiDotsVertical } from "react-icons/hi";
-import HeaderItems from "./layout/HeaderItems";
+import HeaderItems from "./component/HeaderItems";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
